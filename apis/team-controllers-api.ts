@@ -19,6 +19,7 @@ import { Configuration } from '../configuration';
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
 import { AttendanceUserScheme } from '../models';
 import { CreateTeamSchema } from '../models';
+import { Team } from '../models';
 import { UserWorkTypes } from '../models';
 /**
  * TeamControllersApi - axios parameter creator
@@ -236,7 +237,7 @@ export const TeamControllersApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createTeam(body?: CreateTeamSchema, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<void>>> {
+        async createTeam(body?: CreateTeamSchema, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Team>>> {
             const localVarAxiosArgs = await TeamControllersApiAxiosParamCreator(configuration).createTeam(body, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -249,7 +250,7 @@ export const TeamControllersApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTeam(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<void>>> {
+        async getTeam(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Team>>> {
             const localVarAxiosArgs = await TeamControllersApiAxiosParamCreator(configuration).getTeam(id, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -276,7 +277,7 @@ export const TeamControllersApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTeamsAll(userId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<void>>> {
+        async getTeamsAll(userId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Array<Team>>>> {
             const localVarAxiosArgs = await TeamControllersApiAxiosParamCreator(configuration).getTeamsAll(userId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -298,7 +299,7 @@ export const TeamControllersApiFactory = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createTeam(body?: CreateTeamSchema, options?: AxiosRequestConfig): Promise<AxiosResponse<void>> {
+        async createTeam(body?: CreateTeamSchema, options?: AxiosRequestConfig): Promise<AxiosResponse<Team>> {
             return TeamControllersApiFp(configuration).createTeam(body, options).then((request) => request(axios, basePath));
         },
         /**
@@ -307,7 +308,7 @@ export const TeamControllersApiFactory = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTeam(id: string, options?: AxiosRequestConfig): Promise<AxiosResponse<void>> {
+        async getTeam(id: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Team>> {
             return TeamControllersApiFp(configuration).getTeam(id, options).then((request) => request(axios, basePath));
         },
         /**
@@ -326,7 +327,7 @@ export const TeamControllersApiFactory = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTeamsAll(userId?: string, options?: AxiosRequestConfig): Promise<AxiosResponse<void>> {
+        async getTeamsAll(userId?: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<Team>>> {
             return TeamControllersApiFp(configuration).getTeamsAll(userId, options).then((request) => request(axios, basePath));
         },
     };
@@ -346,7 +347,7 @@ export class TeamControllersApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TeamControllersApi
      */
-    public async createTeam(body?: CreateTeamSchema, options?: AxiosRequestConfig) : Promise<AxiosResponse<void>> {
+    public async createTeam(body?: CreateTeamSchema, options?: AxiosRequestConfig) : Promise<AxiosResponse<Team>> {
         return TeamControllersApiFp(this.configuration).createTeam(body, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -356,7 +357,7 @@ export class TeamControllersApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TeamControllersApi
      */
-    public async getTeam(id: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<void>> {
+    public async getTeam(id: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<Team>> {
         return TeamControllersApiFp(this.configuration).getTeam(id, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -377,7 +378,7 @@ export class TeamControllersApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TeamControllersApi
      */
-    public async getTeamsAll(userId?: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<void>> {
+    public async getTeamsAll(userId?: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<Array<Team>>> {
         return TeamControllersApiFp(this.configuration).getTeamsAll(userId, options).then((request) => request(this.axios, this.basePath));
     }
 }

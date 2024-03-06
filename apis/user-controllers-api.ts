@@ -237,7 +237,7 @@ export const UserControllersApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getUser(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<void>>> {
+        async getUser(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<UserModel>>> {
             const localVarAxiosArgs = await UserControllersApiAxiosParamCreator(configuration).getUser(id, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -263,7 +263,7 @@ export const UserControllersApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateUser(id: string, body?: UpdateUserScheme, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<void>>> {
+        async updateUser(id: string, body?: UpdateUserScheme, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<UserModel>>> {
             const localVarAxiosArgs = await UserControllersApiAxiosParamCreator(configuration).updateUser(id, body, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -293,7 +293,7 @@ export const UserControllersApiFactory = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getUser(id: string, options?: AxiosRequestConfig): Promise<AxiosResponse<void>> {
+        async getUser(id: string, options?: AxiosRequestConfig): Promise<AxiosResponse<UserModel>> {
             return UserControllersApiFp(configuration).getUser(id, options).then((request) => request(axios, basePath));
         },
         /**
@@ -311,7 +311,7 @@ export const UserControllersApiFactory = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateUser(id: string, body?: UpdateUserScheme, options?: AxiosRequestConfig): Promise<AxiosResponse<void>> {
+        async updateUser(id: string, body?: UpdateUserScheme, options?: AxiosRequestConfig): Promise<AxiosResponse<UserModel>> {
             return UserControllersApiFp(configuration).updateUser(id, body, options).then((request) => request(axios, basePath));
         },
     };
@@ -340,7 +340,7 @@ export class UserControllersApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof UserControllersApi
      */
-    public async getUser(id: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<void>> {
+    public async getUser(id: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<UserModel>> {
         return UserControllersApiFp(this.configuration).getUser(id, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -360,7 +360,7 @@ export class UserControllersApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof UserControllersApi
      */
-    public async updateUser(id: string, body?: UpdateUserScheme, options?: AxiosRequestConfig) : Promise<AxiosResponse<void>> {
+    public async updateUser(id: string, body?: UpdateUserScheme, options?: AxiosRequestConfig) : Promise<AxiosResponse<UserModel>> {
         return UserControllersApiFp(this.configuration).updateUser(id, body, options).then((request) => request(this.axios, this.basePath));
     }
 }
