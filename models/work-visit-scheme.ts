@@ -24,11 +24,11 @@ export interface WorkVisitScheme {
      * @type {string}
      * @memberof WorkVisitScheme
      */
-    userId?: string;
+    userId: string;
 
     /**
      * @type {Date}
      * @memberof WorkVisitScheme
      */
-    visitedAt?: Date;
+    visitedAt: Date;
 }

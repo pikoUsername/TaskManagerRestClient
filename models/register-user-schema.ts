@@ -24,17 +24,17 @@ export interface RegisterUserSchema {
      * @type {string}
      * @memberof RegisterUserSchema
      */
-    fullName?: string | null;
+    fullName: string;
 
     /**
      * @type {string}
      * @memberof RegisterUserSchema
      */
-    email?: string | null;
+    email: string;
 
     /**
      * @type {string}
      * @memberof RegisterUserSchema
      */
-    password?: string | null;
+    password: string;
 }

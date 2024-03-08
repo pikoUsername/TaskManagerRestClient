@@ -24,11 +24,17 @@ export interface CreateTeamSchema {
      * @type {string}
      * @memberof CreateTeamSchema
      */
-    name?: string | null;
+    name: string;
 
     /**
      * @type {Array<string>}
      * @memberof CreateTeamSchema
      */
-    userIds?: Array<string> | null;
+    userIds: Array<string>;
+
+    /**
+     * @type {string}
+     * @memberof CreateTeamSchema
+     */
+    description: string;
 }

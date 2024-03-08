@@ -24,5 +24,5 @@ export interface AssignUserScheme {
      * @type {string}
      * @memberof AssignUserScheme
      */
-    userId?: string;
+    userId: string;
 }

@@ -25,19 +25,19 @@ export interface AttendanceUserScheme {
      * @type {string}
      * @memberof AttendanceUserScheme
      */
-    email?: string | null;
+    email: string;
 
     /**
      * @type {string}
      * @memberof AttendanceUserScheme
      */
-    fullName?: string | null;
+    fullName: string;
 
     /**
      * @type {boolean}
      * @memberof AttendanceUserScheme
      */
-    blocked?: boolean;
+    blocked: boolean;
 
     /**
      * @type {FileModel}

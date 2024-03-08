@@ -24,7 +24,7 @@ export interface CreateTaskSchema {
      * @type {string}
      * @memberof CreateTaskSchema
      */
-    projectId?: string;
+    projectId: string;
 
     /**
      * @type {string}
@@ -36,17 +36,17 @@ export interface CreateTaskSchema {
      * @type {string}
      * @memberof CreateTaskSchema
      */
-    title?: string | null;
+    title: string;
 
     /**
      * @type {string}
      * @memberof CreateTaskSchema
      */
-    description?: string | null;
+    description: string;
 
     /**
      * @type {string}
      * @memberof CreateTaskSchema
      */
-    status?: string | null;
+    status: string;
 }

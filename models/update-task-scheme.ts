@@ -24,11 +24,11 @@ export interface UpdateTaskScheme {
      * @type {string}
      * @memberof UpdateTaskScheme
      */
-    title?: string | null;
+    title: string;
 
     /**
      * @type {string}
      * @memberof UpdateTaskScheme
      */
-    description?: string | null;
+    description: string;
 }

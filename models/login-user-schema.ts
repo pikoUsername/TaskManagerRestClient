@@ -24,11 +24,11 @@ export interface LoginUserSchema {
      * @type {string}
      * @memberof LoginUserSchema
      */
-    email?: string | null;
+    email: string;
 
     /**
      * @type {string}
      * @memberof LoginUserSchema
      */
-    password?: string | null;
+    password: string;
 }

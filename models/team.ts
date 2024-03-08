@@ -37,6 +37,12 @@ export interface Team {
     name: string;
 
     /**
+     * @type {string}
+     * @memberof Team
+     */
+    description: string;
+
+    /**
      * @type {boolean}
      * @memberof Team
      */
