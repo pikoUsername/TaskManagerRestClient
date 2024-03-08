@@ -129,13 +129,17 @@ export const ProjectControllersApiAxiosParamCreator = function (configuration?: 
         },
         /**
          * 
-         * @param {string} [name] 
-         * @param {string} [id] 
+         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getProject: async (name?: string, id?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/api/project/one`;
+        getProject: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            if (id === null || id === undefined) {
+                throw new RequiredError('id','Required parameter id was null or undefined when calling getProject.');
+            }
+            const localVarPath = `/api/project/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, 'https://example.com');
             let baseOptions;
@@ -153,14 +157,6 @@ export const ProjectControllersApiAxiosParamCreator = function (configuration?: 
                     ? await configuration.accessToken()
                     : await configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
-            }
-
-            if (name !== undefined) {
-                localVarQueryParameter['Name'] = name;
-            }
-
-            if (id !== undefined) {
-                localVarQueryParameter['Id'] = id;
             }
 
             const query = new URLSearchParams(localVarUrlObj.search);
@@ -317,13 +313,12 @@ export const ProjectControllersApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
-         * @param {string} [name] 
-         * @param {string} [id] 
+         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getProject(name?: string, id?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Project>>> {
-            const localVarAxiosArgs = await ProjectControllersApiAxiosParamCreator(configuration).getProject(name, id, options);
+        async getProject(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Project>>> {
+            const localVarAxiosArgs = await ProjectControllersApiAxiosParamCreator(configuration).getProject(id, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -386,13 +381,12 @@ export const ProjectControllersApiFactory = function (configuration?: Configurat
         },
         /**
          * 
-         * @param {string} [name] 
-         * @param {string} [id] 
+         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getProject(name?: string, id?: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Project>> {
-            return ProjectControllersApiFp(configuration).getProject(name, id, options).then((request) => request(axios, basePath));
+        async getProject(id: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Project>> {
+            return ProjectControllersApiFp(configuration).getProject(id, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -446,14 +440,13 @@ export class ProjectControllersApi extends BaseAPI {
     }
     /**
      * 
-     * @param {string} [name] 
-     * @param {string} [id] 
+     * @param {string} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProjectControllersApi
      */
-    public async getProject(name?: string, id?: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<Project>> {
-        return ProjectControllersApiFp(this.configuration).getProject(name, id, options).then((request) => request(this.axios, this.basePath));
+    public async getProject(id: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<Project>> {
+        return ProjectControllersApiFp(this.configuration).getProject(id, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * 
