@@ -30,5 +30,5 @@ export interface TaskType {
      * @type {string}
      * @memberof TaskType
      */
-    name?: string | null;
+    name: string;
 }

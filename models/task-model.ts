@@ -33,25 +33,25 @@ export interface TaskModel {
      * @type {string}
      * @memberof TaskModel
      */
-    title?: string | null;
+    title: string;
 
     /**
      * @type {string}
      * @memberof TaskModel
      */
-    description?: string | null;
+    description: string;
 
     /**
      * @type {string}
      * @memberof TaskModel
      */
-    status?: string | null;
+    status: string;
 
     /**
      * @type {Date}
      * @memberof TaskModel
      */
-    startedAt?: Date;
+    startedAt: Date;
 
     /**
      * @type {Date}
@@ -69,13 +69,13 @@ export interface TaskModel {
      * @type {Project}
      * @memberof TaskModel
      */
-    project?: Project;
+    project: Project;
 
     /**
      * @type {UserModel}
      * @memberof TaskModel
      */
-    createdBy?: UserModel;
+    createdBy: UserModel;
 
     /**
      * @type {Array<TaskTag>}

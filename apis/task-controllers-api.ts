@@ -177,6 +177,54 @@ export const TaskControllersApiAxiosParamCreator = function (configuration?: Con
         },
         /**
          * 
+         * @param {string} id 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTask: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            if (id === null || id === undefined) {
+                throw new RequiredError('id','Required parameter id was null or undefined when calling getTask.');
+            }
+            const localVarPath = `/api/task/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, 'https://example.com');
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions :AxiosRequestConfig = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication Bearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? await configuration.accessToken()
+                    : await configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            const query = new URLSearchParams(localVarUrlObj.search);
+            for (const key in localVarQueryParameter) {
+                query.set(key, localVarQueryParameter[key]);
+            }
+            for (const key in options.params) {
+                query.set(key, options.params[key]);
+            }
+            localVarUrlObj.search = (new URLSearchParams(query)).toString();
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: localVarUrlObj.pathname + localVarUrlObj.search + localVarUrlObj.hash,
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
          * @param {string} [projectId] 
          * @param {string} [userId] 
          * @param {string} [teamId] 
@@ -341,6 +389,19 @@ export const TaskControllersApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
+         * @param {string} id 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getTask(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<TaskModel>>> {
+            const localVarAxiosArgs = await TaskControllersApiAxiosParamCreator(configuration).getTask(id, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * 
          * @param {string} [projectId] 
          * @param {string} [userId] 
          * @param {string} [teamId] 
@@ -408,6 +469,15 @@ export const TaskControllersApiFactory = function (configuration?: Configuration
         },
         /**
          * 
+         * @param {string} id 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getTask(id: string, options?: AxiosRequestConfig): Promise<AxiosResponse<TaskModel>> {
+            return TaskControllersApiFp(configuration).getTask(id, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
          * @param {string} [projectId] 
          * @param {string} [userId] 
          * @param {string} [teamId] 
@@ -468,6 +538,16 @@ export class TaskControllersApi extends BaseAPI {
      */
     public async deleteTask(id: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<TaskModel>> {
         return TaskControllersApiFp(this.configuration).deleteTask(id, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * 
+     * @param {string} id 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TaskControllersApi
+     */
+    public async getTask(id: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<TaskModel>> {
+        return TaskControllersApiFp(this.configuration).getTask(id, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * 

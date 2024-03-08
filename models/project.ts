@@ -70,7 +70,7 @@ export interface Project {
      * @type {UserModel}
      * @memberof Project
      */
-    createdBy?: UserModel;
+    createdBy: UserModel;
 
     /**
      * @type {Date}

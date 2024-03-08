@@ -31,7 +31,7 @@ export interface TaskTag {
      * @type {string}
      * @memberof TaskTag
      */
-    name?: string | null;
+    name: string;
 
     /**
      * @type {Array<TaskModel>}

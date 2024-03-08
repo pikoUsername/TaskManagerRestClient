@@ -43,5 +43,5 @@ export interface WorkVisit {
      * @type {DayTimetable}
      * @memberof WorkVisit
      */
-    dayTimetable?: DayTimetable;
+    dayTimetable: DayTimetable;
 }

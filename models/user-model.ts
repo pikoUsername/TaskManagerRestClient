@@ -32,13 +32,13 @@ export interface UserModel {
      * @type {string}
      * @memberof UserModel
      */
-    fullName?: string | null;
+    fullName: string;
 
     /**
      * @type {string}
      * @memberof UserModel
      */
-    email?: string | null;
+    email: string;
 
     /**
      * @type {string}
@@ -74,7 +74,7 @@ export interface UserModel {
      * @type {string}
      * @memberof UserModel
      */
-    workType?: string | null;
+    workType: string;
 
     /**
      * @type {Array<WorkVisit>}

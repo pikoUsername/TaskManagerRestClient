@@ -34,13 +34,13 @@ export interface Team {
      * @type {string}
      * @memberof Team
      */
-    name?: string | null;
+    name: string;
 
     /**
      * @type {boolean}
      * @memberof Team
      */
-    deleted?: boolean;
+    deleted: boolean;
 
     /**
      * @type {FileModel}
@@ -52,7 +52,7 @@ export interface Team {
      * @type {UserModel}
      * @memberof Team
      */
-    createdBy?: UserModel;
+    createdBy: UserModel;
 
     /**
      * @type {Array<Group>}
