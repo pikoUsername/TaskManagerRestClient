@@ -13,7 +13,6 @@
  */
 
 import { DayOfWeek } from './day-of-week';
-import { DayTimeTableTypes } from './day-time-table-types';
  /**
  * 
  *
@@ -32,19 +31,19 @@ export interface DayTimetable {
      * @type {Date}
      * @memberof DayTimetable
      */
-    startsAt?: Date;
+    startsAt: Date;
 
     /**
      * @type {Date}
      * @memberof DayTimetable
      */
-    endsAt?: Date;
+    endsAt: Date;
 
     /**
-     * @type {DayTimeTableTypes}
+     * @type {string}
      * @memberof DayTimetable
      */
-    type?: DayTimeTableTypes;
+    type?: string | null;
 
     /**
      * @type {DayOfWeek}
@@ -56,5 +55,5 @@ export interface DayTimetable {
      * @type {string}
      * @memberof DayTimetable
      */
-    name?: string | null;
+    name: string;
 }

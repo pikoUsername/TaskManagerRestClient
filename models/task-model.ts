@@ -13,7 +13,6 @@
  */
 
 import { Project } from './project';
-import { TaskStatus } from './task-status';
 import { TaskTag } from './task-tag';
 import { UserModel } from './user-model';
  /**
@@ -43,10 +42,10 @@ export interface TaskModel {
     description?: string | null;
 
     /**
-     * @type {TaskStatus}
+     * @type {string}
      * @memberof TaskModel
      */
-    status?: TaskStatus;
+    status?: string | null;
 
     /**
      * @type {Date}

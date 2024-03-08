@@ -30,7 +30,7 @@ export interface FileModel {
      * @type {string}
      * @memberof FileModel
      */
-    fileName?: string | null;
+    fileName: string;
 
     /**
      * @type {string}
@@ -48,5 +48,5 @@ export interface FileModel {
      * @type {string}
      * @memberof FileModel
      */
-    filePath?: string | null;
+    filePath: string;
 }

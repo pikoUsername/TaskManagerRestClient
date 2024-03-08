@@ -31,17 +31,17 @@ export interface Comment {
      * @type {string}
      * @memberof Comment
      */
-    text?: string | null;
+    text: string;
 
     /**
      * @type {Date}
      * @memberof Comment
      */
-    createdAt?: Date;
+    createdAt: Date;
 
     /**
      * @type {TaskModel}
      * @memberof Comment
      */
-    task?: TaskModel;
+    task: TaskModel;
 }

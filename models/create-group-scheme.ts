@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { GroupRoles } from './group-roles';
  /**
  * 
  *
@@ -34,8 +33,8 @@ export interface CreateGroupScheme {
     teamId?: string;
 
     /**
-     * @type {GroupRoles}
+     * @type {string}
      * @memberof CreateGroupScheme
      */
-    role?: GroupRoles;
+    role?: string | null;
 }

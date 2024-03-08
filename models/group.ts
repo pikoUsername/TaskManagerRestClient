@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { GroupRoles } from './group-roles';
 import { UserModel } from './user-model';
  /**
  * 
@@ -32,13 +31,13 @@ export interface Group {
      * @type {string}
      * @memberof Group
      */
-    name?: string | null;
+    name: string;
 
     /**
-     * @type {GroupRoles}
+     * @type {string}
      * @memberof Group
      */
-    role?: GroupRoles;
+    role: string;
 
     /**
      * @type {Array<UserModel>}

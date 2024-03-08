@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { TaskStatus } from './task-status';
  /**
  * 
  *
@@ -46,8 +45,8 @@ export interface CreateTaskSchema {
     description?: string | null;
 
     /**
-     * @type {TaskStatus}
+     * @type {string}
      * @memberof CreateTaskSchema
      */
-    status?: TaskStatus;
+    status?: string | null;
 }

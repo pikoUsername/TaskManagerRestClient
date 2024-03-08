@@ -34,13 +34,13 @@ export interface Project {
      * @type {string}
      * @memberof Project
      */
-    name?: string | null;
+    name: string;
 
     /**
      * @type {string}
      * @memberof Project
      */
-    description?: string | null;
+    description: string;
 
     /**
      * @type {FileModel}
@@ -71,4 +71,10 @@ export interface Project {
      * @memberof Project
      */
     createdBy?: UserModel;
+
+    /**
+     * @type {Date}
+     * @memberof Project
+     */
+    createdAt?: Date;
 }

@@ -13,7 +13,6 @@
  */
 
 import { FileModel } from './file-model';
-import { UserWorkTypes } from './user-work-types';
 import { WorkVisit } from './work-visit';
  /**
  * 
@@ -72,10 +71,10 @@ export interface UserModel {
     banner?: FileModel;
 
     /**
-     * @type {UserWorkTypes}
+     * @type {string}
      * @memberof UserModel
      */
-    workType?: UserWorkTypes;
+    workType?: string | null;
 
     /**
      * @type {Array<WorkVisit>}

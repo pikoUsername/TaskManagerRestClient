@@ -20,7 +20,6 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 import { AttendanceUserScheme } from '../models';
 import { CreateTeamSchema } from '../models';
 import { Team } from '../models';
-import { UserWorkTypes } from '../models';
 /**
  * TeamControllersApi - axios parameter creator
  * @export
@@ -125,11 +124,11 @@ export const TeamControllersApiAxiosParamCreator = function (configuration?: Con
         /**
          * 
          * @param {string} id 
-         * @param {UserWorkTypes} [workType] 
+         * @param {string} [workType] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTeamAttendance: async (id: string, workType?: UserWorkTypes, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getTeamAttendance: async (id: string, workType?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             if (id === null || id === undefined) {
                 throw new RequiredError('id','Required parameter id was null or undefined when calling getTeamAttendance.');
@@ -260,11 +259,11 @@ export const TeamControllersApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @param {string} id 
-         * @param {UserWorkTypes} [workType] 
+         * @param {string} [workType] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTeamAttendance(id: string, workType?: UserWorkTypes, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Array<AttendanceUserScheme>>>> {
+        async getTeamAttendance(id: string, workType?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Array<AttendanceUserScheme>>>> {
             const localVarAxiosArgs = await TeamControllersApiAxiosParamCreator(configuration).getTeamAttendance(id, workType, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -314,11 +313,11 @@ export const TeamControllersApiFactory = function (configuration?: Configuration
         /**
          * 
          * @param {string} id 
-         * @param {UserWorkTypes} [workType] 
+         * @param {string} [workType] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTeamAttendance(id: string, workType?: UserWorkTypes, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<AttendanceUserScheme>>> {
+        async getTeamAttendance(id: string, workType?: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<AttendanceUserScheme>>> {
             return TeamControllersApiFp(configuration).getTeamAttendance(id, workType, options).then((request) => request(axios, basePath));
         },
         /**
@@ -363,12 +362,12 @@ export class TeamControllersApi extends BaseAPI {
     /**
      * 
      * @param {string} id 
-     * @param {UserWorkTypes} [workType] 
+     * @param {string} [workType] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TeamControllersApi
      */
-    public async getTeamAttendance(id: string, workType?: UserWorkTypes, options?: AxiosRequestConfig) : Promise<AxiosResponse<Array<AttendanceUserScheme>>> {
+    public async getTeamAttendance(id: string, workType?: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<Array<AttendanceUserScheme>>> {
         return TeamControllersApiFp(this.configuration).getTeamAttendance(id, workType, options).then((request) => request(this.axios, this.basePath));
     }
     /**

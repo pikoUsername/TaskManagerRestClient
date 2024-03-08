@@ -65,4 +65,10 @@ export interface Team {
      * @memberof Team
      */
     dayTimetables?: Array<DayTimetable> | null;
+
+    /**
+     * @type {number}
+     * @memberof Team
+     */
+    membersCount?: number;
 }

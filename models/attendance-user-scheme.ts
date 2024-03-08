@@ -13,7 +13,6 @@
  */
 
 import { FileModel } from './file-model';
-import { UserWorkTypes } from './user-work-types';
  /**
  * 
  *
@@ -47,8 +46,8 @@ export interface AttendanceUserScheme {
     avatar?: FileModel;
 
     /**
-     * @type {UserWorkTypes}
+     * @type {string}
      * @memberof AttendanceUserScheme
      */
-    workType?: UserWorkTypes;
+    workType?: string | null;
 }
