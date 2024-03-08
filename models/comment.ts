@@ -13,6 +13,7 @@
  */
 
 import { TaskModel } from './task-model';
+import { UserModel } from './user-model';
  /**
  * 
  *
@@ -44,4 +45,10 @@ export interface Comment {
      * @memberof Comment
      */
     task: TaskModel;
+
+    /**
+     * @type {UserModel}
+     * @memberof Comment
+     */
+    createdBy: UserModel;
 }
