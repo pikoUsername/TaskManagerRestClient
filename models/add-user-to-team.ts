@@ -25,4 +25,10 @@ export interface AddUserToTeam {
      * @memberof AddUserToTeam
      */
     userIds: Array<string>;
+
+    /**
+     * @type {string}
+     * @memberof AddUserToTeam
+     */
+    group?: string | null;
 }

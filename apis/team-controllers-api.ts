@@ -39,7 +39,7 @@ export const TeamControllersApiAxiosParamCreator = function (configuration?: Con
             if (id === null || id === undefined) {
                 throw new RequiredError('id','Required parameter id was null or undefined when calling addUserToTeam.');
             }
-            const localVarPath = `/api/team/{id}/adduser`
+            const localVarPath = `/api/team/{id}/groups/adduser`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, 'https://example.com');
