@@ -24,5 +24,5 @@ export interface AddUserProjectScheme {
      * @type {string}
      * @memberof AddUserProjectScheme
      */
-    userId?: string;
+    userId: string;
 }

@@ -24,11 +24,11 @@ export interface CreateCommentScheme {
      * @type {string}
      * @memberof CreateCommentScheme
      */
-    taskId?: string;
+    taskId: string;
 
     /**
      * @type {string}
      * @memberof CreateCommentScheme
      */
-    text?: string | null;
+    text: string;
 }

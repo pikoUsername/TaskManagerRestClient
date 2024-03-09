@@ -37,4 +37,10 @@ export interface UpdateProjectSchema {
      * @memberof UpdateProjectSchema
      */
     iconId?: string | null;
+
+    /**
+     * @type {string}
+     * @memberof UpdateProjectSchema
+     */
+    ownerId?: string | null;
 }

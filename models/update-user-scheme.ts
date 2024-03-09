@@ -37,4 +37,10 @@ export interface UpdateUserScheme {
      * @memberof UpdateUserScheme
      */
     fullName?: string | null;
+
+    /**
+     * @type {string}
+     * @memberof UpdateUserScheme
+     */
+    avatarId?: string | null;
 }

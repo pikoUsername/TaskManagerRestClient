@@ -24,11 +24,11 @@ export interface CreateProjectScheme {
      * @type {string}
      * @memberof CreateProjectScheme
      */
-    name?: string | null;
+    name: string;
 
     /**
      * @type {string}
      * @memberof CreateProjectScheme
      */
-    description?: string | null;
+    description: string;
 }

@@ -24,11 +24,11 @@ export interface LoginResponseSchema {
      * @type {string}
      * @memberof LoginResponseSchema
      */
-    accessToken?: string | null;
+    accessToken: string;
 
     /**
      * @type {string}
      * @memberof LoginResponseSchema
      */
-    expiresIn?: string | null;
+    expiresIn: string;
 }

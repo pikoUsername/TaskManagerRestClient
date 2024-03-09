@@ -24,17 +24,17 @@ export interface CreateGroupScheme {
      * @type {string}
      * @memberof CreateGroupScheme
      */
-    name?: string | null;
+    name: string;
 
     /**
      * @type {string}
      * @memberof CreateGroupScheme
      */
-    teamId?: string;
+    teamId: string;
 
     /**
      * @type {string}
      * @memberof CreateGroupScheme
      */
-    role?: string | null;
+    role: string;
 }

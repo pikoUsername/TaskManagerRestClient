@@ -117,10 +117,11 @@ export const UserControllersApiAxiosParamCreator = function (configuration?: Con
         },
         /**
          * 
+         * @param {string} [name] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUsers: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getUsers: async (name?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/user`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, 'https://example.com');
@@ -139,6 +140,10 @@ export const UserControllersApiAxiosParamCreator = function (configuration?: Con
                     ? await configuration.accessToken()
                     : await configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            if (name !== undefined) {
+                localVarQueryParameter['name'] = name;
             }
 
             const query = new URLSearchParams(localVarUrlObj.search);
@@ -246,11 +251,12 @@ export const UserControllersApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
+         * @param {string} [name] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getUsers(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Array<UserModel>>>> {
-            const localVarAxiosArgs = await UserControllersApiAxiosParamCreator(configuration).getUsers(options);
+        async getUsers(name?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Array<UserModel>>>> {
+            const localVarAxiosArgs = await UserControllersApiAxiosParamCreator(configuration).getUsers(name, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -298,11 +304,12 @@ export const UserControllersApiFactory = function (configuration?: Configuration
         },
         /**
          * 
+         * @param {string} [name] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getUsers(options?: AxiosRequestConfig): Promise<AxiosResponse<Array<UserModel>>> {
-            return UserControllersApiFp(configuration).getUsers(options).then((request) => request(axios, basePath));
+        async getUsers(name?: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<UserModel>>> {
+            return UserControllersApiFp(configuration).getUsers(name, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -345,12 +352,13 @@ export class UserControllersApi extends BaseAPI {
     }
     /**
      * 
+     * @param {string} [name] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UserControllersApi
      */
-    public async getUsers(options?: AxiosRequestConfig) : Promise<AxiosResponse<Array<UserModel>>> {
-        return UserControllersApiFp(this.configuration).getUsers(options).then((request) => request(this.axios, this.basePath));
+    public async getUsers(name?: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<Array<UserModel>>> {
+        return UserControllersApiFp(this.configuration).getUsers(name, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * 
