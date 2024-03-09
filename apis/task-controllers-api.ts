@@ -225,18 +225,14 @@ export const TaskControllersApiAxiosParamCreator = function (configuration?: Con
         },
         /**
          * 
-         * @param {string} userId 
          * @param {string} [projectId] 
+         * @param {string} [userId] 
          * @param {string} [teamId] 
          * @param {boolean} [userTasks] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTasks: async (userId: string, projectId?: string, teamId?: string, userTasks?: boolean, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'userId' is not null or undefined
-            if (userId === null || userId === undefined) {
-                throw new RequiredError('userId','Required parameter userId was null or undefined when calling getTasks.');
-            }
+        getTasks: async (projectId?: string, userId?: string, teamId?: string, userTasks?: boolean, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/task`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, 'https://example.com');
@@ -406,15 +402,15 @@ export const TaskControllersApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
-         * @param {string} userId 
          * @param {string} [projectId] 
+         * @param {string} [userId] 
          * @param {string} [teamId] 
          * @param {boolean} [userTasks] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTasks(userId: string, projectId?: string, teamId?: string, userTasks?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Array<TaskModel>>>> {
-            const localVarAxiosArgs = await TaskControllersApiAxiosParamCreator(configuration).getTasks(userId, projectId, teamId, userTasks, options);
+        async getTasks(projectId?: string, userId?: string, teamId?: string, userTasks?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Array<TaskModel>>>> {
+            const localVarAxiosArgs = await TaskControllersApiAxiosParamCreator(configuration).getTasks(projectId, userId, teamId, userTasks, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -482,15 +478,15 @@ export const TaskControllersApiFactory = function (configuration?: Configuration
         },
         /**
          * 
-         * @param {string} userId 
          * @param {string} [projectId] 
+         * @param {string} [userId] 
          * @param {string} [teamId] 
          * @param {boolean} [userTasks] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTasks(userId: string, projectId?: string, teamId?: string, userTasks?: boolean, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<TaskModel>>> {
-            return TaskControllersApiFp(configuration).getTasks(userId, projectId, teamId, userTasks, options).then((request) => request(axios, basePath));
+        async getTasks(projectId?: string, userId?: string, teamId?: string, userTasks?: boolean, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<TaskModel>>> {
+            return TaskControllersApiFp(configuration).getTasks(projectId, userId, teamId, userTasks, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -555,16 +551,16 @@ export class TaskControllersApi extends BaseAPI {
     }
     /**
      * 
-     * @param {string} userId 
      * @param {string} [projectId] 
+     * @param {string} [userId] 
      * @param {string} [teamId] 
      * @param {boolean} [userTasks] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TaskControllersApi
      */
-    public async getTasks(userId: string, projectId?: string, teamId?: string, userTasks?: boolean, options?: AxiosRequestConfig) : Promise<AxiosResponse<Array<TaskModel>>> {
-        return TaskControllersApiFp(this.configuration).getTasks(userId, projectId, teamId, userTasks, options).then((request) => request(this.axios, this.basePath));
+    public async getTasks(projectId?: string, userId?: string, teamId?: string, userTasks?: boolean, options?: AxiosRequestConfig) : Promise<AxiosResponse<Array<TaskModel>>> {
+        return TaskControllersApiFp(this.configuration).getTasks(projectId, userId, teamId, userTasks, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * 

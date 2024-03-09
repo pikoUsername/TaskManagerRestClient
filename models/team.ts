@@ -28,7 +28,7 @@ export interface Team {
      * @type {string}
      * @memberof Team
      */
-    id?: string;
+    id: string;
 
     /**
      * @type {string}

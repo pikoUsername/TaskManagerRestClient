@@ -25,7 +25,7 @@ export interface Group {
      * @type {string}
      * @memberof Group
      */
-    id?: string;
+    id: string;
 
     /**
      * @type {string}

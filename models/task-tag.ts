@@ -25,7 +25,7 @@ export interface TaskTag {
      * @type {string}
      * @memberof TaskTag
      */
-    id?: string;
+    id: string;
 
     /**
      * @type {string}

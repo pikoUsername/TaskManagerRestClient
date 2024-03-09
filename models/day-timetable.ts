@@ -25,7 +25,7 @@ export interface DayTimetable {
      * @type {string}
      * @memberof DayTimetable
      */
-    id?: string;
+    id: string;
 
     /**
      * @type {Date}

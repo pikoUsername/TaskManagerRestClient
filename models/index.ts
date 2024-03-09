@@ -1,4 +1,5 @@
 export * from './add-user-project-scheme';
+export * from './add-user-to-team';
 export * from './assign-user-scheme';
 export * from './attendance-user-scheme';
 export * from './comment';

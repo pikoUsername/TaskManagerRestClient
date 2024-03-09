@@ -25,7 +25,7 @@ export interface WorkVisit {
      * @type {string}
      * @memberof WorkVisit
      */
-    id?: string;
+    id: string;
 
     /**
      * @type {Date}

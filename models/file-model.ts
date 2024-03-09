@@ -24,7 +24,7 @@ export interface FileModel {
      * @type {string}
      * @memberof FileModel
      */
-    id?: string;
+    id: string;
 
     /**
      * @type {string}

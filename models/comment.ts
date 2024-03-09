@@ -26,7 +26,7 @@ export interface Comment {
      * @type {string}
      * @memberof Comment
      */
-    id?: string;
+    id: string;
 
     /**
      * @type {string}

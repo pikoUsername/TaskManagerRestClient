@@ -16,19 +16,13 @@
  * 
  *
  * @export
- * @interface TaskType
+ * @interface AddUserToTeam
  */
-export interface TaskType {
+export interface AddUserToTeam {
 
     /**
-     * @type {string}
-     * @memberof TaskType
+     * @type {Array<string>}
+     * @memberof AddUserToTeam
      */
-    id: string;
-
-    /**
-     * @type {string}
-     * @memberof TaskType
-     */
-    name: string;
+    userIds: Array<string>;
 }

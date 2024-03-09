@@ -27,7 +27,7 @@ export interface TaskModel {
      * @type {string}
      * @memberof TaskModel
      */
-    id?: string;
+    id: string;
 
     /**
      * @type {string}
