@@ -46,6 +46,12 @@ export interface DayTimetable {
     type?: string | null;
 
     /**
+     * @type {string}
+     * @memberof DayTimetable
+     */
+    subType?: string | null;
+
+    /**
      * @type {DayOfWeek}
      * @memberof DayTimetable
      */
