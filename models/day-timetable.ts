@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { DayOfWeek } from './day-of-week';
+import { DayTypes } from './day-types';
  /**
  * 
  *
@@ -52,10 +52,10 @@ export interface DayTimetable {
     subType?: string | null;
 
     /**
-     * @type {DayOfWeek}
+     * @type {DayTypes}
      * @memberof DayTimetable
      */
-    day?: DayOfWeek;
+    day?: DayTypes;
 
     /**
      * @type {string}

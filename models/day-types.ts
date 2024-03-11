@@ -12,29 +12,19 @@
  * Do not edit the class manually.
  */
 
- /**
+/**
  * 
- *
  * @export
- * @interface UpdateTaskScheme
+ * @enum {string}
  */
-export interface UpdateTaskScheme {
-
-    /**
-     * @type {string}
-     * @memberof UpdateTaskScheme
-     */
-    title?: string | null;
-
-    /**
-     * @type {string}
-     * @memberof UpdateTaskScheme
-     */
-    description?: string | null;
-
-    /**
-     * @type {string}
-     * @memberof UpdateTaskScheme
-     */
-    taskStatus?: string | null;
+export enum DayTypes {
+    NUMBER_0 = 0,
+    NUMBER_1 = 1,
+    NUMBER_2 = 2,
+    NUMBER_3 = 3,
+    NUMBER_4 = 4,
+    NUMBER_5 = 5,
+    NUMBER_6 = 6,
+    NUMBER_7 = 7
 }
+
